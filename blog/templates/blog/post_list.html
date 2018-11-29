@@ -1,12 +1,39 @@
 			{% extends 'blog/base.html' %}
 			{%block content%}
+			<!-- Begin Site Title
+================================================== -->
+<div class="container">
+    <div class="mainheading">
+        <h1 class="sitetitle">Not a Blog</h1>
+        <p class="lead">
+             Bootstrap theme, medium style, simply perfect for bloggers
+        </p>
+    </div>
+<!-- End Site Title
+================================================== -->
+ <div class="section-title">
+        <h2><span>All Stories</span></h2>
+    </div>
+    <div class="card-columns listrecent">
             {% for post in posts %}
-                <div class="post">
-                    <div class="date">
-                        <p>published: {{ post.published_date }}</p>
-                    </div>
-                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                    
-                </div>
+                <div class="card">
+			<a href="post.html">
+				<img class="img-fluid" src="assets/img/demopic/5.jpg" alt="">
+			</a>
+			<div class="card-block">
+				<h2 class="card-title"><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+				<h4 class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</h4>
+				<div class="metafooter">
+					<div class="wrapfooter">
+						
+						<span class="author-meta">
+						<span class="post-name">{{post.author}}</a></span><br/>
+						<span class="post-date">published: {{ post.published_date }}</span><span class="dot"></span><span class="post-read">6 min read</span>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
             {% endfor %}
             {% endblock %}
